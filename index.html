@@ -3,1073 +3,1040 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Extractor SRI con OCR - Para mi Amor Contadora 💖</title>
+    <title>✨ Feliz Cumpleaños Mi Amor ✨</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial Rounded MT Bold', 'Arial', sans-serif;
         }
         
         body {
-            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: #fff;
             min-height: 100vh;
-            padding: 20px;
-            color: #333;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        .love-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            opacity: 0.7;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 105, 180, 0.15) 0%, transparent 20%),
+                radial-gradient(circle at 80% 70%, rgba(147, 112, 219, 0.15) 0%, transparent 20%),
+                radial-gradient(circle at 40% 80%, rgba(255, 182, 193, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 60% 20%, rgba(221, 160, 221, 0.1) 0%, transparent 20%);
         }
         
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            background-color: white;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            padding: 40px;
+            padding: 20px;
             position: relative;
-            border: 5px solid #ff6b6b;
+            z-index: 1;
         }
         
-        .heart-decoration {
+        /* Cabecera romántica */
+        .romantic-header {
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            margin-bottom: 40px;
+            animation: fadeInDown 1.5s ease;
+        }
+        
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .main-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4.5rem;
+            color: #ff7ee6;
+            text-shadow: 0 0 20px rgba(255, 126, 230, 0.5);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .main-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ff7ee6, transparent);
+        }
+        
+        .subtitle {
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: #dda0dd;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+        
+        .intro-text {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #e6e6fa;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Secciones didácticas */
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .section-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.8rem;
+            color: #ffb6c1;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ffb6c1, transparent);
+        }
+        
+        /* Galería espectacular */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .photo-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 300px;
+            cursor: pointer;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .photo-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+        
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        
+        .photo-card:hover img {
+            transform: scale(1.1);
+        }
+        
+        .photo-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 25px 20px 20px;
+            transform: translateY(100%);
+            transition: transform 0.5s ease;
+        }
+        
+        .photo-card:hover .photo-overlay {
+            transform: translateY(0);
+        }
+        
+        .photo-number {
             position: absolute;
             top: 20px;
             right: 20px;
-            font-size: 40px;
-            color: #ff6b6b;
-            animation: heartbeat 1.5s infinite;
-        }
-        
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-        
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 25px;
-            border-bottom: 3px dashed #ff6b6b;
-            position: relative;
-        }
-        
-        h1 {
-            color: #ff6b6b;
-            font-size: 2.8rem;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-        }
-        
-        .love-message {
-            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
-            border: 3px solid #ff6b6b;
-            border-radius: 15px;
-            padding: 25px;
-            margin: 25px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .love-message::before {
-            content: "💕";
-            position: absolute;
-            font-size: 100px;
-            opacity: 0.1;
-            top: -30px;
-            left: -30px;
-            transform: rotate(-15deg);
-        }
-        
-        .love-message h3 {
-            color: #d32f2f;
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-        }
-        
-        .love-message p {
-            color: #555;
-            font-size: 1.2rem;
-            line-height: 1.6;
-        }
-        
-        .upload-area {
-            border: 4px dashed #ff8e8e;
-            border-radius: 15px;
-            padding: 40px 30px;
-            text-align: center;
-            margin-bottom: 30px;
-            background-color: #fff5f5;
-            transition: all 0.3s;
-            position: relative;
-        }
-        
-        .upload-area:hover {
-            border-color: #ff6b6b;
-            background-color: #ffebee;
-            transform: translateY(-5px);
-        }
-        
-        .upload-icon {
-            font-size: 80px;
-            color: #ff6b6b;
-            margin-bottom: 20px;
-            animation: bounce 2s infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        .btn {
-            padding: 16px 35px;
-            background: linear-gradient(135deg, #ff6b6b 0%, #ff5252 100%);
+            background: rgba(255, 126, 230, 0.9);
             color: white;
-            border: none;
-            border-radius: 50px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: inline-flex;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.3);
-            margin: 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(255, 126, 230, 0.3);
         }
         
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
-            background: linear-gradient(135deg, #ff5252 0%, #ff6b6b 100%);
+        .photo-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #fff;
         }
         
-        .btn-success {
-            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
-            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.3);
+        .photo-desc {
+            font-size: 0.95rem;
+            color: #e6e6fa;
+            line-height: 1.5;
         }
         
-        .btn-success:hover {
-            background: linear-gradient(135deg, #45a049 0%, #4CAF50 100%);
-            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+        /* Efectos especiales para fotos */
+        .photo-card:nth-child(3n+1) {
+            border: 2px solid rgba(255, 105, 180, 0.5);
         }
         
-        .btn-danger {
-            background: linear-gradient(135deg, #ff5252 0%, #d32f2f 100%);
-            box-shadow: 0 6px 20px rgba(255, 82, 82, 0.3);
+        .photo-card:nth-child(3n+2) {
+            border: 2px solid rgba(147, 112, 219, 0.5);
         }
         
-        .file-item {
-            background: white;
-            border-radius: 10px;
-            padding: 15px;
-            margin: 10px 0;
+        .photo-card:nth-child(3n+3) {
+            border: 2px solid rgba(255, 182, 193, 0.5);
+        }
+        
+        /* Sección interactiva didáctica */
+        .interactive-lesson {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
-            border-left: 5px solid #ff6b6b;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            transition: all 0.3s;
+            margin-top: 30px;
         }
         
-        .file-item:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-        }
-        
-        .progress-container {
-            background: #fff5f5;
-            border-radius: 15px;
+        .lesson-step {
+            background: rgba(255, 255, 255, 0.07);
+            border-radius: 20px;
             padding: 25px;
-            margin: 30px 0;
-            display: none;
-            border: 2px solid #ffcdd2;
-        }
-        
-        .progress-bar {
+            margin-bottom: 25px;
             width: 100%;
-            height: 25px;
-            background: #ffcdd2;
-            border-radius: 12px;
-            overflow: hidden;
+            max-width: 800px;
+            border-left: 5px solid #ff7ee6;
+            transition: transform 0.4s ease, background 0.4s ease;
+            cursor: pointer;
+        }
+        
+        .lesson-step:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .step-number {
+            display: inline-block;
+            background: #ff7ee6;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: bold;
+            margin-right: 15px;
+            box-shadow: 0 5px 15px rgba(255, 126, 230, 0.3);
+        }
+        
+        .step-title {
+            display: inline-block;
+            font-size: 1.4rem;
+            color: #ffb6c1;
             margin-bottom: 10px;
-            position: relative;
         }
         
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #ff6b6b, #ff5252);
-            width: 0%;
-            transition: width 0.5s ease;
+        .step-content {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #e6e6fa;
+            margin-left: 50px;
+        }
+        
+        /* Área de mensajes especiales */
+        .messages-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .message-box {
+            background: rgba(255, 255, 255, 0.07);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
             position: relative;
             overflow: hidden;
         }
         
-        .progress-fill::after {
+        .message-box:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.7s;
+        }
+        
+        .message-box:hover:before {
+            left: 100%;
+        }
+        
+        .message-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .message-icon {
+            font-size: 2.5rem;
+            color: #ff7ee6;
+            margin-bottom: 20px;
+        }
+        
+        .message-title {
+            font-size: 1.5rem;
+            color: #ffb6c1;
+            margin-bottom: 15px;
+        }
+        
+        .message-content {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #e6e6fa;
+        }
+        
+        /* Efecto de revelación de mensaje */
+        .secret-message {
+            background: linear-gradient(135deg, rgba(147, 112, 219, 0.2), rgba(255, 105, 180, 0.2));
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        
+        .secret-message:before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            bottom: 0;
             right: 0;
-            background-image: linear-gradient(
-                -45deg,
-                rgba(255,255,255,0.2) 25%,
-                transparent 25%,
-                transparent 50%,
-                rgba(255,255,255,0.2) 50%,
-                rgba(255,255,255,0.2) 75%,
-                transparent 75%,
-                transparent
-            );
-            background-size: 50px 50px;
-            animation: move 2s linear infinite;
+            height: 5px;
+            background: linear-gradient(90deg, #ff7ee6, #9370db, #ff7ee6);
         }
         
-        @keyframes move {
-            0% { background-position: 0 0; }
-            100% { background-position: 50px 50px; }
+        .secret-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255, 126, 230, 0.5);
         }
         
-        .result-section {
-            margin-top: 40px;
-            padding: 30px;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-radius: 20px;
-            display: none;
-            border: 3px solid #4CAF50;
-            position: relative;
-            overflow: hidden;
+        .secret-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #f0f0ff;
+            max-width: 800px;
+            margin: 0 auto;
         }
         
-        .result-section::before {
-            content: "💖";
+        /* Corazones animados */
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .heart {
             position: absolute;
-            font-size: 150px;
-            opacity: 0.05;
-            bottom: -50px;
-            right: -30px;
-            transform: rotate(15deg);
+            color: rgba(255, 105, 180, 0.7);
+            font-size: 24px;
+            animation: floatHeart 15s linear infinite;
+        }
+        
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Modal para fotos */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-content {
+            max-width: 90%;
+            max-height: 85%;
+            border-radius: 15px;
+            box-shadow: 0 0 40px rgba(255, 126, 230, 0.3);
+            position: relative;
+            animation: zoomIn 0.5s ease;
+        }
+        
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            transition: color 0.3s;
+            z-index: 1001;
+        }
+        
+        .close-modal:hover {
+            color: #ff7ee6;
+        }
+        
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 126, 230, 0.8);
+            color: white;
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 28px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+            z-index: 1001;
+        }
+        
+        .modal-nav:hover {
+            background: rgba(255, 126, 230, 1);
+        }
+        
+        .prev-photo {
+            left: 30px;
+        }
+        
+        .next-photo {
+            right: 30px;
+        }
+        
+        .photo-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .photo-info-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #ffb6c1;
+        }
+        
+        /* Footer romántico */
+        .romantic-footer {
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 50px;
+            position: relative;
+        }
+        
+        .footer-heart {
+            font-size: 3rem;
+            color: #ff7ee6;
+            margin-bottom: 20px;
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            5% { transform: scale(1.2); }
+            10% { transform: scale(1); }
+            15% { transform: scale(1.3); }
+            20% { transform: scale(1); }
         }
         
         .final-message {
-            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
-            border: 3px solid #4CAF50;
-            border-radius: 15px;
-            padding: 25px;
-            margin-top: 30px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.8rem;
+            color: #ffb6c1;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255, 182, 193, 0.5);
         }
         
-        .final-message::before {
-            content: "💝";
-            position: absolute;
-            font-size: 80px;
-            opacity: 0.1;
-            top: -20px;
-            left: -20px;
-        }
-        
-        .final-message h3 {
-            color: #2e7d32;
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-        }
-        
-        .final-message p {
-            color: #555;
+        .signature {
             font-size: 1.3rem;
-            font-weight: bold;
-            line-height: 1.6;
+            color: #e6e6fa;
+            font-style: italic;
         }
         
-        .love-signature {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 2px dashed #ff6b6b;
-            color: #ff6b6b;
-            font-size: 1.1rem;
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .gallery-container {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
         }
         
         @media (max-width: 768px) {
-            .container {
+            .main-title {
+                font-size: 3.5rem;
+            }
+            
+            .section {
+                padding: 30px 20px;
+            }
+            
+            .section-title {
+                font-size: 2.3rem;
+            }
+            
+            .gallery-container {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .messages-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-nav {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+            
+            .prev-photo {
+                left: 15px;
+            }
+            
+            .next-photo {
+                right: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 2.8rem;
+            }
+            
+            .intro-text {
+                padding: 20px;
+                font-size: 1.1rem;
+            }
+            
+            .gallery-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .photo-card {
+                height: 280px;
+            }
+            
+            .lesson-step {
                 padding: 20px;
             }
             
-            h1 {
-                font-size: 2rem;
-                flex-direction: column;
-                gap: 10px;
+            .step-content {
+                margin-left: 0;
+                margin-top: 15px;
             }
-            
-            .btn {
-                width: 100%;
-                max-width: 300px;
-                margin: 5px 0;
-            }
+        }
+        
+        /* Efecto de brillo en títulos */
+        .glow {
+            text-shadow: 0 0 10px currentColor;
         }
     </style>
 </head>
 <body>
+    <div class="love-bg"></div>
+    <div class="hearts-container" id="heartsContainer"></div>
+    
     <div class="container">
-        <div class="heart-decoration">💖</div>
-        
-        <header>
-            <h1>
-                <i class="fas fa-heart" style="color: #ff6b6b;"></i>
-                Extractor SRI para mi Amor Contadora
-                <i class="fas fa-heart" style="color: #ff6b6b;"></i>
-            </h1>
-            <p style="color: #666; font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
-                Una herramienta especial para hacer tu trabajo más fácil, mi amor 💕
-            </p>
+        <!-- Cabecera romántica -->
+        <header class="romantic-header">
+            <h1 class="main-title glow">Feliz Cumpleaños, Mi Amor</h1>
+            <p class="subtitle">Un viaje visual por nuestros momentos más especiales</p>
+            
+            <div class="intro-text">
+                <p>Hoy celebramos el día en que el universo nos regaló a la persona más maravillosa. Cada una de estas fotos cuenta una historia de amor, risas y momentos inolvidables que hemos compartido. Te amo más de lo que las palabras pueden expresar.</p>
+            </div>
         </header>
         
-        <div class="love-message">
-            <h3><i class="fas fa-gift"></i> Para la contadora más especial del mundo</h3>
-            <p>Querida amor, sé que trabajas duro con todas esas declaraciones del SRI.<br>
-            Espero que esta herramienta te ayude a ahorrar tiempo y hacer tu trabajo más fácil.<br>
-            <strong>Recuerda que te amo más que a nada en este mundo.</strong> 💖</p>
-        </div>
-        
-        <div class="upload-area" id="uploadArea">
-            <div class="upload-icon">
-                <i class="fas fa-file-pdf"></i>
-            </div>
-            <p style="font-size: 24px; margin-bottom: 15px; color: #ff6b6b; font-weight: bold;">
-                Arrastra tus PDFs del SRI aquí, mi amor
-            </p>
-            <p style="color: #888; margin-bottom: 25px; font-size: 16px;">
-                Sube hasta 3 archivos PDF de declaraciones de IVA (Enero, Febrero, Marzo...)
-            </p>
-            <button class="btn" id="selectFilesBtn">
-                <i class="fas fa-folder-open"></i> Seleccionar Archivos
-            </button>
-            <input type="file" id="fileInput" accept=".pdf" multiple style="display: none;">
-        </div>
-        
-        <div id="fileList"></div>
-        
-        <div style="text-align: center; margin: 30px 0;">
-            <button class="btn btn-success" id="processBtn" disabled>
-                <i class="fas fa-magic"></i> Procesar con Amor y Tecnología
-            </button>
-            <button class="btn btn-danger" id="clearBtn" disabled>
-                <i class="fas fa-heart-broken"></i> Limpiar Todo
-            </button>
-        </div>
-        
-        <div class="progress-container" id="progressContainer">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 18px;">
-                <span id="progressText" style="color: #ff6b6b; font-weight: bold;">
-                    <i class="fas fa-heartbeat"></i> Procesando con amor...
-                </span>
-                <span id="progressPercent" style="color: #ff6b6b; font-weight: bold;">0%</span>
-            </div>
-            <div class="progress-bar">
-                <div class="progress-fill" id="progressFill"></div>
-            </div>
-            <div style="text-align: center; margin-top: 15px;">
-                <span id="currentStatus" style="color: #666; font-size: 16px;">
-                    Preparando todo con cariño para ti...
-                </span>
-            </div>
-        </div>
-        
-        <div class="result-section" id="resultSection">
-            <h2 style="color: #4CAF50; text-align: center; margin-bottom: 25px;">
-                <i class="fas fa-check-circle"></i> ¡Extracción Completada con Éxito!
-            </h2>
-            <div id="resultsTable" style="margin-bottom: 30px;"></div>
+        <!-- Galería de fotos espectacular -->
+        <section class="section">
+            <h2 class="section-title">Nuestra Galería de Amor</h2>
+            <p style="text-align: center; color: #dda0dd; margin-bottom: 20px; font-size: 1.2rem;">Cada imagen es un tesoro que guarda un momento especial</p>
             
-            <div class="final-message">
-                <h3><i class="fas fa-heart"></i> Mensaje Especial para Ti:</h3>
-                <p>
-                    "Te amo mucho mi amor 💖<br>
-                    Que este programa te sirva para tu trabajo<br>
-                    y te ahorre horas de trabajo tedioso.<br>
-                    Eres la mejor contadora del mundo 🌟"
-                </p>
+            <div class="gallery-container" id="gallery">
+                <!-- Las fotos se cargarán aquí con JavaScript -->
+            </div>
+        </section>
+        
+        <!-- Lección didáctica sobre nuestro amor -->
+        <section class="section">
+            <h2 class="section-title">Lecciones de Nuestro Amor</h2>
+            
+            <div class="interactive-lesson">
+                <div class="lesson-step" onclick="showMessage('lesson1')">
+                    <span class="step-number">1</span>
+                    <span class="step-title">La Ciencia de Nuestra Conexión</span>
+                    <div class="step-content">
+                        Nuestro amor activa los centros de recompensa en el cerebro, liberando dopamina y oxitocina. Cada vez que te veo, mi cerebro celebra como si ganara la lotería.
+                    </div>
+                </div>
+                
+                <div class="lesson-step" onclick="showMessage('lesson2')">
+                    <span class="step-number">2</span>
+                    <span class="step-title">El Arte de Crear Recuerdos</span>
+                    <div class="step-content">
+                        Cada experiencia compartida fortalece nuestra conexión emocional. Los recuerdos que creamos juntos son como capas de pintura en el lienzo de nuestra historia.
+                    </div>
+                </div>
+                
+                <div class="lesson-step" onclick="showMessage('lesson3')">
+                    <span class="step-number">3</span>
+                    <span class="step-title">La Matemática de la Felicidad</span>
+                    <div class="step-content">
+                        La felicidad que siento contigo sigue una progresión geométrica: cada día es exponencialmente más feliz que el anterior. Tú eres mi variable constante de alegría.
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Mensajes especiales interactivos -->
+        <section class="section">
+            <h2 class="section-title">Mensajes Especiales Para Ti</h2>
+            
+            <div class="messages-container">
+                <div class="message-box" onclick="showSecretMessage(0)">
+                    <div class="message-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="message-title">Por Qué Te Amo</h3>
+                    <div class="message-content">
+                        Tu sonrisa ilumina mis días, tu corazón comprende el mío, y tu amor transforma mi mundo en un lugar más hermoso.
+                    </div>
+                </div>
+                
+                <div class="message-box" onclick="showSecretMessage(1)">
+                    <div class="message-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="message-title">Lo Que Más Admiro</h3>
+                    <div class="message-content">
+                        Admiro tu fortaleza, tu bondad innata, tu inteligencia y esa chispa especial que hace único cada momento a tu lado.
+                    </div>
+                </div>
+                
+                <div class="message-box" onclick="showSecretMessage(2)">
+                    <div class="message-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3 class="message-title">Mi Regalo Para Ti</h3>
+                    <div class="message-content">
+                        Mi regalo es mi amor incondicional, mi apoyo eterno y la promesa de estar a tu lado en cada paso del camino.
+                    </div>
+                </div>
             </div>
             
-            <div style="text-align: center; margin-top: 30px;">
-                <button class="btn btn-success" id="downloadBtn" style="font-size: 20px; padding: 18px 40px;">
-                    <i class="fas fa-download"></i> Descargar Excel con Amor
-                </button>
+            <div class="secret-message" id="secretMessage" style="display: none;">
+                <h3 class="secret-title" id="secretTitle"></h3>
+                <p class="secret-text" id="secretText"></p>
             </div>
-        </div>
+        </section>
         
-        <div class="love-signature">
-            <p>Hecho con mucho 💖 para la contadora más especial</p>
-            <p><small>Cada línea de código escrita pensando en ti</small></p>
+        <!-- Mensaje final romántico -->
+        <footer class="romantic-footer">
+            <div class="footer-heart">
+                <i class="fas fa-heart"></i>
+            </div>
+            <h2 class="final-message">Eres el mejor regalo de mi vida</h2>
+            <p class="signature">Con todo mi amor, en tu día especial y siempre</p>
+            <p class="signature" style="margin-top: 10px; font-size: 1.5rem; color: #ff7ee6;">¡Feliz Cumpleaños, mi amor!</p>
+        </footer>
+    </div>
+    
+    <!-- Modal para ver fotos en grande -->
+    <div class="modal" id="photoModal">
+        <span class="close-modal" id="closeModal">&times;</span>
+        <button class="modal-nav prev-photo" id="prevPhoto">&#10094;</button>
+        <img class="modal-content" id="modalImage" src="" alt="Foto ampliada">
+        <button class="modal-nav next-photo" id="nextPhoto">&#10095;</button>
+        <div class="photo-info">
+            <h3 class="photo-info-title" id="modalTitle"></h3>
+            <p id="modalDesc"></p>
         </div>
     </div>
-
+    
     <script>
-        // Variables globales
-        let pdfFiles = [];
-        let extractedData = [];
+        // Fotos con títulos y descripciones románticas
+        const photos = [
+            "https://res.cloudinary.com/dtmqftcsr/image/upload/v1769476000/WhatsApp_Image_2026-01-26_at_8.02.21_PM_2_g8rls0.jpg",
+            "https://res.cloudinary.com/dtmqftcsr/image/upload/v1769476000/WhatsApp_Image_2026-01-26_at_8.02.23_PM_3_mgu7ge.jpg",
+            "https://res.cloudinary.com/dtmqftcsr/image/upload/v1769476000/WhatsApp_Image_2026-01-26_at_8.02.21_PM_1_xnsy9a.jpg",
+            "https://res.cloudinary.com/dtmqftcsr/image/upload/v1769476000/WhatsApp_Image_2026-01-26_at_7.59.23_PM_kvm5rx.jpg",
+            "https://res.cloudinary.com/dtmqftcsr/image/upload/v1769475999/WhatsApp_Image_2026-01-26_at_8.02.23_PM_2_qxg6sf.jpg",
+            "https://res.cloudinary.com/dtmqftcsr/image/upload/v1769476000/WhatsApp_Image_2026-01-26_at_8.02.22_PM_5_fvv8e3.jpg",
+            "https://res.cloudinary.com/dtmqftcsr/image/upload/v1769476001/WhatsApp_Image_2026-01-26_at_8.02.22_PM_cb0nia.jpg",
+            "https://res.cloudinary.com/dtmqftcsr/image/upload/v1769476001/WhatsApp_Image_2026-01-26_at_8.02.22_PM_1_of6add.jpg",
+            "https://res.cloudinary.com/dtmqftcsr/image/upload/v1769475999/WhatsApp_Image_2026-01-26_at_8.02.23_PM_1_tzio4n.jpg",
+            "https://res.cloudinary.com/dtmqftcsr/image/upload/v1769476000/WhatsApp_Image_2026-01-26_at_8.02.21_PM_qarlhj.jpg",
+            "https://res.cloudinary.com/dtmqftcsr/image/upload/v1769475999/WhatsApp_Image_2026-01-26_at_8.02.22_PM_2_qo3bvl.jpg",
+            "https://res.cloudinary.com/dtmqftcsr/image/upload/v1769475999/WhatsApp_Image_2026-01-26_at_8.02.22_PM_4_g8vdvj.jpg",
+            "https://res.cloudinary.com/dtmqftcsr/image/upload/v1769475999/WhatsApp_Image_2026-01-26_at_8.02.22_PM_3_i0lfok.jpg",
+            "https://res.cloudinary.com/dtmqftcsr/image/upload/v1769475999/WhatsApp_Image_2026-01-26_at_8.02.23_PM_pnym0h.jpg",
+            "https://res.cloudinary.com/dtmqftcsr/image/upload/v1769475999/WhatsApp_Image_2026-01-26_at_8.02.22_PM_6_j6bfai.jpg"
+        ];
         
-        // Elementos del DOM
-        const uploadArea = document.getElementById('uploadArea');
-        const fileInput = document.getElementById('fileInput');
-        const selectFilesBtn = document.getElementById('selectFilesBtn');
-        const fileList = document.getElementById('fileList');
-        const processBtn = document.getElementById('processBtn');
-        const clearBtn = document.getElementById('clearBtn');
-        const progressContainer = document.getElementById('progressContainer');
-        const progressFill = document.getElementById('progressFill');
-        const progressText = document.getElementById('progressText');
-        const progressPercent = document.getElementById('progressPercent');
-        const currentStatus = document.getElementById('currentStatus');
-        const resultSection = document.getElementById('resultSection');
-        const resultsTable = document.getElementById('resultsTable');
-        const downloadBtn = document.getElementById('downloadBtn');
+        const photoTitles = [
+            "Sonrisa que Ilumina mi Mundo",
+            "Complicidad en Cada Mirada",
+            "Juntos Frente a Todo",
+            "Nuestra Primera Aventura",
+            "Risas que Resuenan en el Alma",
+            "Atardecer de Amor Eterno",
+            "Conexión que Trasciende",
+            "Sueños Entrelazados",
+            "Celebración de Cada Día",
+            "Instante de Perfección",
+            "Secretos Nocturnos",
+            "Felicidad en Simplicidad",
+            "Mirada hacia el Futuro",
+            "Abrazo que Lo Cura Todo",
+            "Promesa de Siempre"
+        ];
         
-        // Inicializar Tesseract OCR
-        let ocrWorker = null;
+        const photoDescriptions = [
+            "Esa sonrisa tuya tiene el poder de transformar incluso el día más gris en uno lleno de color y alegría.",
+            "Nuestras miradas se encuentran y en ese instante el mundo entero desaparece, solo existimos tú y yo.",
+            "Contigo a mi lado, sé que podemos enfrentar cualquier desafío. Eres mi fuerza y mi refugio.",
+            "El comienzo de todas nuestras aventuras. Ese día supe que quería explorar el mundo contigo.",
+            "Tu risa es mi melodía favorita, el sonido que llena mi corazón de una felicidad indescriptible.",
+            "Contemplamos el atardecer, pero la verdadera belleza estaba en tus ojos reflejando los últimos rayos de sol.",
+            "Hay una conexión entre nosotros que va más allá de las palabras, un entendimiento profundo del alma.",
+            "Nuestros sueños individuales se han convertido en sueños compartidos, un futuro que construimos juntos.",
+            "Cada día a tu lado es motivo de celebración, un recordatorio de lo afortunado que soy.",
+            "Algunos momentos son tan perfectos que parecen congelados en el tiempo, como este contigo.",
+            "Esas noches de conversaciones profundas donde compartimos nuestros pensamientos más íntimos.",
+            "La felicidad más grande a menudo se encuentra en los momentos más simples cuando estamos juntos.",
+            "Mirando hacia el futuro con la certeza de que lo mejor está por venir mientras estemos unidos.",
+            "Tu abrazo tiene el poder mágico de sanar cualquier herida y calmar cualquier tormenta.",
+            "La promesa de amarte hoy, mañana y siempre, en cada etapa de nuestra vida juntos."
+        ];
         
-        // Event Listeners con toque romántico
-        selectFilesBtn.addEventListener('click', () => {
-            fileInput.click();
-            showHeartAnimation();
-        });
-        
-        fileInput.addEventListener('change', (e) => {
-            handleFiles(e.target.files);
-            showHeartAnimation();
-        });
-        
-        clearBtn.addEventListener('click', () => {
-            if(confirm("¿Estás segura que quieres limpiar todo, mi amor? 💔")) {
-                clearAll();
+        // Mensajes secretos para las lecciones
+        const lessonMessages = {
+            lesson1: {
+                title: "La Neuroquímica de Nuestro Amor",
+                text: "Cuando te veo, mi cerebro libera una combinación de dopamina (placer), serotonina (felicidad) y oxitocina (apego). Es como un cóctel químico de felicidad que solo tú puedes activar. Cada beso, cada abrazo, cada mirada reconfigura mis circuitos neuronales para amarte más."
+            },
+            lesson2: {
+                title: "El Algoritmo de Nuestros Recuerdos",
+                text: "Cada experiencia que compartimos se almacena en mi memoria como un archivo precioso. Estos recuerdos no son estáticos; se fortalecen cada vez que los revivo, creando conexiones neuronales más sólidas. Eres mi biblioteca de momentos felices."
+            },
+            lesson3: {
+                title: "La Ecuación de Nuestra Felicidad",
+                text: "Si F representa nuestra felicidad, entonces F = A × T² donde A es el amor que sentimos y T es el tiempo que pasamos juntos. Como nuestro amor crece exponencialmente, nuestra felicidad aumenta al cuadrado con cada día que compartimos."
             }
-        });
+        };
         
-        processBtn.addEventListener('click', () => {
-            processFilesWithOCR();
-            showHeartAnimation();
-        });
-        
-        downloadBtn.addEventListener('click', () => {
-            downloadExcel();
-            showHeartAnimation();
-            showFinalMessage();
-        });
-        
-        // Arrastrar y soltar con efecto especial
-        uploadArea.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            uploadArea.classList.add('dragover');
-            showHeartAnimation();
-        });
-        
-        uploadArea.addEventListener('dragleave', () => {
-            uploadArea.classList.remove('dragover');
-        });
-        
-        uploadArea.addEventListener('drop', (e) => {
-            e.preventDefault();
-            uploadArea.classList.remove('dragover');
-            if (e.dataTransfer.files.length) {
-                handleFiles(e.dataTransfer.files);
-                showHeartAnimation();
+        // Mensajes secretos para las cajas
+        const secretMessages = [
+            {
+                title: "El Mapa de Tu Corazón",
+                text: "He explorado cada rincón de tu corazón y he encontrado paisajes más hermosos de lo que jamás imaginé. Tu bondad es un valle fértil, tu inteligencia una montaña imponente, y tu amor un océano infinito donde quiero navegar por siempre."
+            },
+            {
+                title: "El Universo en Tus Ojos",
+                text: "Cuando miro profundamente en tus ojos, veo constelaciones de sueños, galaxias de esperanzas y nebulosas de amor. Eres mi cosmos personal, el universo donde quiero perderme y encontrarme una y otra vez."
+            },
+            {
+                title: "La Poesía de Nuestro Amor",
+                text: "Nuestro amor es el poema más bello que he leído, con estrofas de risas compartidas, versos de complicidad y un ritmo que late al unísono con nuestros corazones. Eres la musa que inspira cada línea de mi existencia."
             }
-        });
+        ];
         
-        // Animación de corazones
-        function showHeartAnimation() {
-            const heart = document.createElement('div');
-            heart.innerHTML = '💖';
-            heart.style.position = 'fixed';
-            heart.style.fontSize = '30px';
-            heart.style.pointerEvents = 'none';
-            heart.style.left = Math.random() * window.innerWidth + 'px';
-            heart.style.top = Math.random() * window.innerHeight + 'px';
-            heart.style.zIndex = '9999';
-            heart.style.animation = 'floatUp 2s forwards';
+        // Variables para el modal
+        let currentPhotoIndex = 0;
+        const modal = document.getElementById('photoModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDesc = document.getElementById('modalDesc');
+        const closeModal = document.getElementById('closeModal');
+        const prevPhoto = document.getElementById('prevPhoto');
+        const nextPhoto = document.getElementById('nextPhoto');
+        
+        // Crear corazones flotantes
+        function createFloatingHearts() {
+            const container = document.getElementById('heartsContainer');
+            const heartCount = 40;
             
-            document.body.appendChild(heart);
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '♥';
+                
+                // Posición aleatoria
+                heart.style.left = `${Math.random() * 100}%`;
+                
+                // Tamaño aleatorio
+                const size = Math.random() * 30 + 20;
+                heart.style.fontSize = `${size}px`;
+                
+                // Color aleatorio
+                const colors = ['#ff7ee6', '#ffb6c1', '#dda0dd', '#9370db'];
+                heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+                
+                // Duración y retraso aleatorios
+                const duration = Math.random() * 20 + 15;
+                heart.style.animationDuration = `${duration}s`;
+                
+                const delay = Math.random() * 5;
+                heart.style.animationDelay = `${delay}s`;
+                
+                // Opacidad aleatoria
+                heart.style.opacity = Math.random() * 0.5 + 0.3;
+                
+                container.appendChild(heart);
+            }
+        }
+        
+        // Cargar galería de fotos
+        function loadGallery() {
+            const gallery = document.getElementById('gallery');
             
-            // Crear estilo para la animación
-            if (!document.querySelector('#heartAnimation')) {
-                const style = document.createElement('style');
-                style.id = 'heartAnimation';
-                style.textContent = `
-                    @keyframes floatUp {
-                        0% { transform: translateY(0) scale(1); opacity: 1; }
-                        100% { transform: translateY(-100px) scale(0.5); opacity: 0; }
-                    }
+            photos.forEach((photo, index) => {
+                const card = document.createElement('div');
+                card.classList.add('photo-card');
+                
+                card.innerHTML = `
+                    <div class="photo-number">${index + 1}</div>
+                    <img src="${photo}" alt="${photoTitles[index]}" loading="lazy">
+                    <div class="photo-overlay">
+                        <h3 class="photo-title">${photoTitles[index]}</h3>
+                        <p class="photo-desc">${photoDescriptions[index]}</p>
+                    </div>
                 `;
-                document.head.appendChild(style);
+                
+                card.addEventListener('click', () => openPhotoModal(index));
+                gallery.appendChild(card);
+            });
+        }
+        
+        // Abrir modal de foto
+        function openPhotoModal(index) {
+            currentPhotoIndex = index;
+            updateModal();
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Actualizar modal con la foto actual
+        function updateModal() {
+            modalImage.src = photos[currentPhotoIndex];
+            modalTitle.textContent = photoTitles[currentPhotoIndex];
+            modalDesc.textContent = photoDescriptions[currentPhotoIndex];
+        }
+        
+        // Cerrar modal
+        function closePhotoModal() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Navegar entre fotos
+        function navigatePhotos(direction) {
+            currentPhotoIndex += direction;
+            
+            // Navegación circular
+            if (currentPhotoIndex < 0) {
+                currentPhotoIndex = photos.length - 1;
+            } else if (currentPhotoIndex >= photos.length) {
+                currentPhotoIndex = 0;
             }
             
-            // Remover después de animación
+            updateModal();
+        }
+        
+        // Mostrar mensaje de lección
+        function showMessage(lessonId) {
+            const message = lessonMessages[lessonId];
+            const secretMessageDiv = document.getElementById('secretMessage');
+            const secretTitle = document.getElementById('secretTitle');
+            const secretText = document.getElementById('secretText');
+            
+            secretTitle.textContent = message.title;
+            secretText.textContent = message.text;
+            secretMessageDiv.style.display = 'block';
+            
+            // Desplazar suavemente al mensaje
+            secretMessageDiv.scrollIntoView({ behavior: 'smooth' });
+            
+            // Ocultar después de 10 segundos
             setTimeout(() => {
-                document.body.removeChild(heart);
+                secretMessageDiv.style.display = 'none';
+            }, 10000);
+        }
+        
+        // Mostrar mensaje secreto
+        function showSecretMessage(index) {
+            const message = secretMessages[index];
+            const secretMessageDiv = document.getElementById('secretMessage');
+            const secretTitle = document.getElementById('secretTitle');
+            const secretText = document.getElementById('secretText');
+            
+            secretTitle.textContent = message.title;
+            secretText.textContent = message.text;
+            secretMessageDiv.style.display = 'block';
+            
+            // Desplazar suavemente al mensaje
+            secretMessageDiv.scrollIntoView({ behavior: 'smooth' });
+            
+            // Ocultar después de 10 segundos
+            setTimeout(() => {
+                secretMessageDiv.style.display = 'none';
+            }, 10000);
+        }
+        
+        // Inicializar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            createFloatingHearts();
+            loadGallery();
+            
+            // Event listeners para el modal
+            closeModal.addEventListener('click', closePhotoModal);
+            prevPhoto.addEventListener('click', () => navigatePhotos(-1));
+            nextPhoto.addEventListener('click', () => navigatePhotos(1));
+            
+            // Cerrar modal al hacer clic fuera
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closePhotoModal();
+                }
+            });
+            
+            // Navegación con teclado
+            document.addEventListener('keydown', (e) => {
+                if (modal.style.display === 'flex') {
+                    if (e.key === 'Escape') {
+                        closePhotoModal();
+                    } else if (e.key === 'ArrowLeft') {
+                        navigatePhotos(-1);
+                    } else if (e.key === 'ArrowRight') {
+                        navigatePhotos(1);
+                    }
+                }
+            });
+            
+            // Efecto de aparición suave para las secciones
+            const sections = document.querySelectorAll('.section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(section);
+            });
+            
+            // Efecto de brillo intermitente en el título principal
+            const mainTitle = document.querySelector('.main-title');
+            setInterval(() => {
+                mainTitle.classList.toggle('glow');
             }, 2000);
-        }
-        
-        // Función para mostrar mensaje final
-        function showFinalMessage() {
-            const finalMsg = document.createElement('div');
-            finalMsg.innerHTML = `
-                <div style="
-                    position: fixed;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    background: linear-gradient(135deg, #ff6b6b, #ff5252);
-                    color: white;
-                    padding: 40px;
-                    border-radius: 20px;
-                    text-align: center;
-                    z-index: 10000;
-                    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-                    animation: popIn 0.5s;
-                    max-width: 500px;
-                    width: 90%;
-                ">
-                    <h2 style="margin-bottom: 20px; font-size: 2rem;">💖 Te Amo Mucho 💖</h2>
-                    <p style="font-size: 1.3rem; margin-bottom: 25px;">
-                        Espero que este programa te sea útil en tu trabajo, mi amor.<br>
-                        Eres la mejor contadora y la mejor novia del mundo.
-                    </p>
-                    <button onclick="this.parentElement.remove()" style="
-                        background: white;
-                        color: #ff6b6b;
-                        border: none;
-                        padding: 12px 30px;
-                        border-radius: 50px;
-                        font-size: 1.1rem;
-                        font-weight: bold;
-                        cursor: pointer;
-                        transition: all 0.3s;
-                    ">
-                        ¡Gracias mi amor! 💕
-                    </button>
-                </div>
-            `;
-            
-            // Agregar estilo para animación
-            if (!document.querySelector('#popInAnimation')) {
-                const style = document.createElement('style');
-                style.id = 'popInAnimation';
-                style.textContent = `
-                    @keyframes popIn {
-                        0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
-                        100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-                    }
-                `;
-                document.head.appendChild(style);
-            }
-            
-            document.body.appendChild(finalMsg);
-        }
-        
-        // Manejar archivos
-        function handleFiles(files) {
-            const newFiles = Array.from(files).filter(file => 
-                file.type === 'application/pdf'
-            );
-            
-            if (newFiles.length === 0) {
-                alert("Por favor, selecciona archivos PDF, mi amor 📄");
-                return;
-            }
-            
-            // Limitar a 3 archivos
-            if (pdfFiles.length + newFiles.length > 3) {
-                alert("Para procesamiento más rápido, máximo 3 archivos a la vez, corazón 💝");
-                newFiles.splice(3 - pdfFiles.length);
-            }
-            
-            pdfFiles.push(...newFiles);
-            updateFileList();
-            processBtn.disabled = false;
-            clearBtn.disabled = false;
-            
-            // Mostrar mensaje bonito
-            if (pdfFiles.length === 1) {
-                currentStatus.textContent = "¡Perfecto! Ahora haz clic en procesar, mi amor";
-            }
-        }
-        
-        function updateFileList() {
-            fileList.innerHTML = '';
-            
-            pdfFiles.forEach((file, index) => {
-                const div = document.createElement('div');
-                div.className = 'file-item';
-                div.innerHTML = `
-                    <div style="display: flex; align-items: center; gap: 15px;">
-                        <i class="fas fa-file-pdf" style="color: #ff6b6b; font-size: 24px;"></i>
-                        <div>
-                            <div style="font-weight: bold; color: #333;">${file.name}</div>
-                            <div style="color: #888; font-size: 14px;">
-                                ${(file.size / 1024).toFixed(2)} KB
-                            </div>
-                        </div>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <span id="status${index}" style="
-                            background: #ffebee;
-                            color: #ff6b6b;
-                            padding: 5px 15px;
-                            border-radius: 20px;
-                            font-size: 14px;
-                            font-weight: bold;
-                        ">
-                            <i class="fas fa-heart"></i> LISTO
-                        </span>
-                        <button onclick="removeFile(${index})" style="
-                            background: none;
-                            border: none;
-                            color: #ff6b6b;
-                            cursor: pointer;
-                            font-size: 18px;
-                        ">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                `;
-                fileList.appendChild(div);
-            });
-        }
-        
-        function removeFile(index) {
-            pdfFiles.splice(index, 1);
-            updateFileList();
-            if (pdfFiles.length === 0) {
-                processBtn.disabled = true;
-                clearBtn.disabled = true;
-                currentStatus.textContent = "Sube algunos archivos PDF, mi amor";
-            }
-        }
-        
-        function clearAll() {
-            pdfFiles = [];
-            extractedData = [];
-            fileList.innerHTML = '';
-            processBtn.disabled = true;
-            clearBtn.disabled = true;
-            progressContainer.style.display = 'none';
-            resultSection.style.display = 'none';
-            currentStatus.textContent = "Esperando tus archivos, corazón";
-        }
-        
-        // PROCESAMIENTO CON OCR Y AMOR
-        async function processFilesWithOCR() {
-            if (pdfFiles.length === 0) return;
-            
-            progressContainer.style.display = 'block';
-            processBtn.disabled = true;
-            clearBtn.disabled = true;
-            extractedData = [];
-            
-            // Inicializar OCR
-            try {
-                currentStatus.textContent = "Inicializando OCR con amor...";
-                ocrWorker = await Tesseract.createWorker('spa');
-            } catch (error) {
-                alert("Error al inicializar OCR: " + error.message);
-                return;
-            }
-            
-            try {
-                for (let i = 0; i < pdfFiles.length; i++) {
-                    const file = pdfFiles[i];
-                    
-                    // Actualizar estado con mensajes bonitos
-                    updateProgress(i, pdfFiles.length, `Procesando: ${file.name}`);
-                    document.getElementById(`status${i}`).innerHTML = `
-                        <i class="fas fa-spinner fa-spin"></i> PROCESANDO
-                    `;
-                    document.getElementById(`status${i}`).style.background = "#ffcdd2";
-                    
-                    currentStatus.textContent = `Procesando ${file.name} con todo mi amor...`;
-                    
-                    // Procesar el PDF
-                    const result = await processPDFWithOCR(file, i);
-                    extractedData.push(result);
-                    
-                    // Actualizar estado
-                    document.getElementById(`status${i}`).innerHTML = `
-                        <i class="fas fa-heart"></i> COMPLETADO
-                    `;
-                    document.getElementById(`status${i}`).style.background = "#c8e6c9";
-                    document.getElementById(`status${i}`).style.color = "#2e7d32";
-                }
-                
-                // Mostrar resultados
-                showResults();
-                currentStatus.textContent = "¡Todo procesado con éxito, mi amor!";
-                
-            } catch (error) {
-                console.error('Error en OCR:', error);
-                alert('Lo siento mi amor, hubo un error: ' + error.message);
-            } finally {
-                if (ocrWorker) {
-                    await ocrWorker.terminate();
-                }
-                processBtn.disabled = false;
-                clearBtn.disabled = false;
-            }
-        }
-        
-        async function processPDFWithOCR(file, fileIndex) {
-            try {
-                const arrayBuffer = await file.arrayBuffer();
-                const pdf = await pdfjsLib.getDocument(arrayBuffer).promise;
-                
-                let allText = "";
-                const fields = {};
-                
-                // Inicializar todos los campos
-                for (let i = 401; i <= 999; i++) {
-                    fields[i.toString()] = 0;
-                }
-                
-                // Procesar cada página (máximo 3 para velocidad)
-                const maxPages = Math.min(3, pdf.numPages);
-                
-                for (let pageNum = 1; pageNum <= maxPages; pageNum++) {
-                    updateProgress(fileIndex, pdfFiles.length, `Página ${pageNum}/${maxPages}`);
-                    currentStatus.textContent = `Leyendo página ${pageNum} de ${file.name}...`;
-                    
-                    const page = await pdf.getPage(pageNum);
-                    
-                    // Crear canvas para renderizar
-                    const canvas = document.createElement('canvas');
-                    const context = canvas.getContext('2d');
-                    const viewport = page.getViewport({ scale: 1.5 });
-                    canvas.width = viewport.width;
-                    canvas.height = viewport.height;
-                    
-                    // Renderizar página
-                    await page.render({
-                        canvasContext: context,
-                        viewport: viewport
-                    }).promise;
-                    
-                    // Convertir a imagen
-                    const imageData = canvas.toDataURL('image/jpeg');
-                    
-                    // Aplicar OCR
-                    currentStatus.textContent = `Aplicando OCR a página ${pageNum}...`;
-                    
-                    const { data: { text } } = await Tesseract.recognize(
-                        imageData,
-                        'spa',
-                        {
-                            logger: m => {
-                                if (m.status === 'recognizing text') {
-                                    currentStatus.textContent = `OCR: ${Math.round(m.progress * 100)}% completado`;
-                                }
-                            }
-                        }
-                    );
-                    
-                    allText += text + "\n\n";
-                    
-                    // Buscar campos en el texto OCR
-                    extractFieldsFromOCRText(text, fields);
-                    
-                    // Liberar memoria
-                    canvas.width = 0;
-                    canvas.height = 0;
-                }
-                
-                return {
-                    fileName: file.name,
-                    fields: fields
-                };
-                
-            } catch (error) {
-                console.error(`Error procesando ${file.name}:`, error);
-                
-                // Devolver campos vacíos
-                const errorFields = {};
-                for (let i = 401; i <= 999; i++) {
-                    errorFields[i.toString()] = 0;
-                }
-                
-                document.getElementById(`status${fileIndex}`).innerHTML = `
-                    <i class="fas fa-exclamation-triangle"></i> ERROR
-                `;
-                document.getElementById(`status${fileIndex}`).style.background = "#ffcdd2";
-                document.getElementById(`status${fileIndex}`).style.color = "#d32f2f";
-                
-                return {
-                    fileName: file.name,
-                    fields: errorFields,
-                    error: error.message
-                };
-            }
-        }
-        
-        function extractFieldsFromOCRText(text, fields) {
-            // Método mejorado para buscar campos SRI
-            const lines = text.split('\n');
-            
-            lines.forEach(line => {
-                line = line.trim();
-                
-                // Buscar patrones comunes
-                const patterns = [
-                    /^(\d{3})\s+([-]?[\d.,]+)$/,
-                    /(\b\d{3}\b)\s+([-]?[\d.,]+)/,
-                    /^Campo\s+(\d{3})\s*:\s*([-]?[\d.,]+)/i
-                ];
-                
-                patterns.forEach(pattern => {
-                    const match = line.match(pattern);
-                    if (match) {
-                        const field = match[1];
-                        const value = match[2];
-                        
-                        if (parseInt(field) >= 401 && parseInt(field) <= 999) {
-                            const cleanValue = cleanOCRValue(value);
-                            if (cleanValue !== null) {
-                                fields[field] = cleanValue;
-                            }
-                        }
-                    }
-                });
-            });
-            
-            // Búsqueda adicional para campos pegados
-            const allThreeDigit = text.match(/\b\d{3}\b/g) || [];
-            allThreeDigit.forEach(num => {
-                if (parseInt(num) >= 401 && parseInt(num) <= 999) {
-                    const regex = new RegExp(num + '\\s*([-]?[\\d.,]+)');
-                    const match = text.match(regex);
-                    if (match && match[1]) {
-                        const cleanValue = cleanOCRValue(match[1]);
-                        if (cleanValue !== null) {
-                            fields[num] = cleanValue;
-                        }
-                    }
-                }
-            });
-        }
-        
-        function cleanOCRValue(value) {
-            try {
-                let clean = value
-                    .replace(/[^\d.,-]/g, '')
-                    .replace(/\.(?=.*\.)/g, '')
-                    .replace(/,/g, '.');
-                
-                if (!clean.includes('.')) {
-                    clean += '.00';
-                }
-                
-                const num = parseFloat(clean);
-                return isNaN(num) ? null : num;
-            } catch {
-                return null;
-            }
-        }
-        
-        function updateProgress(current, total, message) {
-            const percent = Math.round((current / total) * 100);
-            progressFill.style.width = `${percent}%`;
-            progressPercent.textContent = `${percent}%`;
-            progressText.innerHTML = `<i class="fas fa-heart"></i> ${message}`;
-        }
-        
-        function showResults() {
-            // Encontrar campos con valores
-            const allFieldsWithValues = new Set();
-            extractedData.forEach(data => {
-                Object.keys(data.fields).forEach(field => {
-                    if (data.fields[field] !== 0) {
-                        allFieldsWithValues.add(field);
-                    }
-                });
-            });
-            
-            const fieldsArray = Array.from(allFieldsWithValues).sort((a, b) => a - b);
-            
-            let html = '';
-            
-            if (fieldsArray.length === 0) {
-                html = `
-                    <div style="text-align: center; padding: 40px; background: white; border-radius: 15px;">
-                        <h3 style="color: #ff6b6b; margin-bottom: 20px;">
-                            <i class="fas fa-heart-broken"></i> No se encontraron campos con valores
-                        </h3>
-                        <p style="color: #666; margin-bottom: 20px;">
-                            El OCR no pudo extraer datos en formato reconocible.<br>
-                            ¿Los PDFs son escaneados o tienen texto muy pequeño?
-                        </p>
-                        <p style="color: #ff6b6b; font-weight: bold;">
-                            Pero igual te amo mucho, mi amor 💖
-                        </p>
-                    </div>
-                `;
-            } else {
-                html = `
-                    <div style="text-align: center; margin-bottom: 30px;">
-                        <h3 style="color: #4CAF50;">
-                            <i class="fas fa-heart"></i> ¡Éxito! Se encontraron 
-                            <span style="color: #ff6b6b;">${fieldsArray.length}</span> campos con valores
-                            <i class="fas fa-heart"></i>
-                        </h3>
-                    </div>
-                    <div style="overflow-x: auto;">
-                        <table style="width: 100%; border-collapse: collapse; margin: 0 auto;">
-                            <thead>
-                                <tr style="background: linear-gradient(135deg, #4CAF50, #45a049); color: white;">
-                                    <th style="padding: 15px; text-align: left; border-radius: 10px 0 0 0;">Archivo</th>
-                `;
-                
-                // Mostrar primeros 8 campos
-                const showFields = fieldsArray.slice(0, 8);
-                showFields.forEach(field => {
-                    html += `<th style="padding: 15px; text-align: center;">${field}</th>`;
-                });
-                
-                html += `</tr></thead><tbody>`;
-                
-                extractedData.forEach(data => {
-                    html += `<tr style="background: white; border-bottom: 2px solid #f0f0f0;">`;
-                    html += `<td style="padding: 15px; font-weight: bold; color: #333;">${data.fileName}</td>`;
-                    
-                    showFields.forEach(field => {
-                        const value = data.fields[field];
-                        html += `<td style="padding: 15px; text-align: center; color: #2e7d32; font-weight: bold;">${value}</td>`;
-                    });
-                    
-                    html += `</tr>`;
-                });
-                
-                html += `</tbody></table></div>`;
-                
-                if (fieldsArray.length > 8) {
-                    html += `
-                        <div style="text-align: center; margin-top: 20px; color: #666;">
-                            <i class="fas fa-info-circle"></i> 
-                            ... y ${fieldsArray.length - 8} campos más en el archivo Excel
-                        </div>
-                    `;
-                }
-            }
-            
-            resultsTable.innerHTML = html;
-            resultSection.style.display = 'block';
-            
-            // Crear Excel
-            createExcelFile();
-            
-            // Desplazar a resultados
-            setTimeout(() => {
-                resultSection.scrollIntoView({ behavior: 'smooth' });
-            }, 500);
-        }
-        
-        function createExcelFile() {
-            // Todos los campos posibles
-            const allFields = [];
-            for (let i = 401; i <= 999; i++) {
-                allFields.push(i.toString());
-            }
-            
-            // Crear datos Excel
-            const excelData = [
-                ['💖 EXTRACCIÓN DE CAMPOS SRI 401-999 💖'],
-                ['Hecho con amor para la mejor contadora del mundo'],
-                [''],
-                ['ARCHIVO', ...allFields]
-            ];
-            
-            extractedData.forEach(data => {
-                const row = [data.fileName];
-                allFields.forEach(field => {
-                    row.push(data.fields[field] || 0);
-                });
-                excelData.push(row);
-            });
-            
-            // Agregar mensaje especial
-            excelData.push(['']);
-            excelData.push(['💝 MENSAJE ESPECIAL 💝']);
-            excelData.push(['Te amo mucho mi amor']);
-            excelData.push(['Que este programa te sirva para tu trabajo']);
-            excelData.push(['Eres la mejor contadora del mundo']);
-            excelData.push(['Con todo mi amor 💖']);
-            
-            // Crear hoja
-            const worksheet = XLSX.utils.aoa_to_sheet(excelData);
-            const workbook = XLSX.utils.book_new();
-            XLSX.utils.book_append_sheet(workbook, worksheet, "Campos SRI");
-            
-            // Agregar hoja con mensaje de amor
-            const loveSheetData = [
-                ['💖 PARA MI AMOR CONTADORA 💖'],
-                [''],
-                ['Querida novia:'],
-                [''],
-                ['Espero que esta herramienta te sea de mucha utilidad'],
-                ['en tu trabajo como contadora.'],
-                [''],
-                ['Sé que trabajas duro con las declaraciones del SRI,'],
-                ['así que quise hacer algo para ayudarte.'],
-                [''],
-                ['Cada campo extraído'],
-                ['Cada número procesado'],
-                ['Cada línea de código'],
-                [''],
-                ['Todo fue hecho pensando en ti.'],
-                [''],
-                ['Te amo más de lo que las palabras pueden expresar.'],
-                [''],
-                ['Con todo mi corazón,'],
-                ['Tu novio que te adora 💕'],
-                [''],
-                ['PD: Eres la mejor contadora del mundo 🌟']
-            ];
-            
-            const loveSheet = XLSX.utils.aoa_to_sheet(loveSheetData);
-            XLSX.utils.book_append_sheet(workbook, loveSheet, "Mensaje de Amor");
-            
-            // Guardar para descarga
-            const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
-            const blob = new Blob([excelBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
-            const url = URL.createObjectURL(blob);
-            
-            downloadBtn.dataset.downloadUrl = url;
-        }
-        
-        function downloadExcel() {
-            const url = downloadBtn.dataset.downloadUrl;
-            if (url) {
-                const fileName = `SRI_Para_Mi_Amor_${new Date().toISOString().split('T')[0]}.xlsx`;
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = fileName;
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-            }
-        }
-        
-        // Inicializar con mensaje bonito
-        currentStatus.textContent = "Sube tus archivos PDF y déjame ayudarte, mi amor";
+        });
     </script>
 </body>
 </html>
